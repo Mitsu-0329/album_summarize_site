@@ -8,6 +8,12 @@ class User < ApplicationRecord
 
   before_validation :family_code_check
 
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :password, presence: true
+  
+
+
   private
   
   def family_code_check
