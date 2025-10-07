@@ -1,13 +1,14 @@
 <div class="card-list-container py-5">
   <% posts.each do |post| %>
   <div class="card w-50 mx-auto mt-4 shadow-lg">
-    <%= link_to post_path(post.id) do %>
-      <%= image_tag post, class: "card-img-top"; %>
-    <% end %>
+
     <div class="card-body">
       <div class="row">
         <div class="col-2">
-          <%= image_tag post, class: "mt-3 rounded-circle"; %>
+        <%= link_to post_path(post.id) do %>
+          <%= image_tag post.post_image, width: "200px", class: "mt-3 rounded-circle"; %>
+        <% end %>
+          
         </div>
         <div class="col-10">
           <p class="card-title">
@@ -17,7 +18,7 @@
           </p>
           <p class="card-text">本文：<%= post.body %></p>
           <span><i class="fas fa-user"></i> By <%= post.user.name %> ｜ </span>
-          <span><%= link_to "#{post} コメント", post_path(post.id), class: "text-dark" %></span>
+          <span><%= link_to "コメント", post_path(post.id), class: "text-dark" %></span>
         </div>
       </div>
     </div>
