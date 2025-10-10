@@ -1,2 +1,41 @@
 <h1>Posts#edit</h1>
 <p>Find me in app/views/posts/edit.html.erb</p>
+
+<main>
+  <p id="notice"></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h1>Editing Post</h1>
+
+        <% if @post.errors.any? %>
+          <h3><%= @post.errors.count %>errors prohibited this post from being saved:</h3>
+          <ul>
+            <% @post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+
+
+         
+         
+        <%= form_with model: @post do |f| %>
+
+          <label>Title</label><br>
+          <%= f.text_field :title, class: "form-control post_title", id: "post_title" %>
+          <br>
+          <label>Body</label><br>
+          <%= f.text_area :body, class: "form-control post_body", id: "post_body" %>
+          <br>
+          <% if @post.user == current_user %>
+            <%= f.submit 'Update Post' , class:"btn btn-success" %>
+          <% end %>
+        <% end %>
+        </div>
+          <%= link_to 'Show', post_path(@post.id) %><%= " | " %>
+          <%= link_to 'Back', posts_path %>
+      </div>
+    </div>
+  </div>
+</main>

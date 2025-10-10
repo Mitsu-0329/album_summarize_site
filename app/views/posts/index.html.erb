@@ -7,3 +7,23 @@
 <% end %>
 
 <%= render 'list', posts: @posts %>
+
+<tbody>
+<% @posts.each do |post| %>
+  <tr>
+    <td>
+      <%= link_to user_session_path(post.user.id) do %>
+        <%= image_tag post.user.get_profile_image(100,100) %>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to post_path(post.id) do %>
+        <%= book.title %>
+      <% end %>
+    </td>
+    <td>
+      <%= book.body %>
+    </td>
+  </tr>
+<% end %>
+</tbody>

@@ -18,6 +18,13 @@ class User < ApplicationRecord
   #@user=User.find(1) # ユーザーidが1の1レコードを取得
   #@user.destroy # ユーザidが1の1レコードを削除
 
+  def get_profile_image(width, height)
+    unless profile_image.attached?
+      file_path = Rails.root.join('app/assets/images/sample-author1.jpg')
+      profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+    end
+    profile_image.variant(resize_to_limit: [width, height]).processed
+  end
 
   private
   
@@ -39,4 +46,11 @@ class User < ApplicationRecord
       return true
     end
   end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :profile_image, :introduction)
+  end
+
 end

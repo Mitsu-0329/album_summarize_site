@@ -32,8 +32,13 @@
                 <%# end %>
               </span>
             <%# end %>
+            <td>
             <% if @post.user == current_user %>
-              <span> ｜ </span><%= link_to "削除", post_path(@post), class:"text-dark", method: :delete %>
+              <%= link_to "編集" ,edit_post_path(@post.id), class:"btn btn-sm btn-success" %>
+            <% end %>
+            </td>            
+            <% if @post.user == current_user %>
+              <span> ｜ </span><%= link_to "削除", post_path(@post), class:"text-dark", method: :delete, "data-confirm" => "本当に消しますか？" %>
             <% end %>
           </div>
         </div>
