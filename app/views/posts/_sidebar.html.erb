@@ -9,10 +9,20 @@
   <table class="table">
     <tbody>
       <tr></tr>
+      <% if user_signed_in? %>
       <tr>
         <th>name</th>
-        <th><%= @user.name %></th>
+        <th><%= current_user.name %></th>
       </tr>
+      <tr>
+        <th>email</th>
+        <th><%= current_user.email %></th>
+      </tr>
+      <tr>
+        <th>family_code</th>
+        <th><%= current_user.family_code %></th>
+      </tr>
+      <% end %>
     </tbody>
   </table>
   <div class="row">
