@@ -12,8 +12,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true
-  validates :password, presence: true
-  
 
   #@user=User.find(1) # ユーザーidが1の1レコードを取得
   #@user.destroy # ユーザidが1の1レコードを削除
