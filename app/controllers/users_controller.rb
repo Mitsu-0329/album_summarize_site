@@ -31,6 +31,13 @@ class UsersController < ApplicationController
   
   end
 
+  def destroy
+    @user = User.find(params[:id])  # データ（レコード）を1件取得
+    @user.destroy  # データ（レコード）を削除
+    redirect_to '/users/sign_up'  # TOP画面へリダイレクト 
+  end
+
+
   private
 
   def user_params

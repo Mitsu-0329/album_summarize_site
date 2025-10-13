@@ -1,0 +1,53 @@
+
+
+
+<div class="col-md-3">
+<h2>User info</h2>
+  <%= link_to user_path(@user.id) do %>
+    <%= image_tag @user.get_profile_image(100,100) %>
+  <% end %>
+  <table class="table">
+    <tbody>
+      <tr></tr>
+      <tr>
+        <th>name</th>
+        <th><%= @user.name %></th>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row">
+    <%= link_to edit_user_path(@user), class:"btn btn-outline-secondary btn-block" do %>
+    <i class="fas fa-user-cog"></i>
+    <% end %>
+  </div>
+  <h2 class="mt-3">New post</h2>
+
+
+
+  <%= form_with model: @post do |f| %>
+
+  <div class="form-group">
+    <div class="field_with_errors">
+    
+      <h4>Title</h4>
+      <%= f.text_field :title, class: "form-control post_title", id: "post_title" %>
+    
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="field_with_errors">
+    
+      <h4>Opinion</h4>
+      <%= f.text_area :body, class: "form-control post_body", id: "post_body" %>
+    
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="field_with_errors">
+      
+        <%= f.submit 'Create post', class:"btn btn-success" %>
+      
+    </div>
+  </div>
+  <% end %>
+</div>
