@@ -21,7 +21,8 @@
          
          
         <%= form_with model: @post do |f| %>
-
+          <label>Image</label><br>
+          <%= f.file_field :post_image, accept: "image/*", class: "w-100" %>
           <label>Title</label><br>
           <%= f.text_field :title, class: "form-control post_title", id: "post_title" %>
           <br>
