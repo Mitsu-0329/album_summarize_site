@@ -8,6 +8,8 @@ class Post < ApplicationRecord
     validates :title, presence: true
     #bodyが存在しているかを確認するバリデーション
     validates :body, presence: true, length: { maximum: 200 }
-  
+    #post_imageが存在しているかを確認するバリデーション
+    validates :post_image, presence: true  
+
 
 end

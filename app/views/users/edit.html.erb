@@ -23,10 +23,19 @@
           <label>Name</label><br>
           <%= f.text_field :name, class: "form-control user_name", id: "user_name" %>
           <br>
+          <label>Email</label><br>
+          <%= f.text_field :email, class: "form-control email", id: "email" %>
+          <br>
+          <label>Family_code</label><br>
+          <%= f.text_field :family_code, class: "form-control family_code", id: "family_code" %>
+          <br>
           <label for="inputImage">Image</label><br>
           <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %> <br> 
           <br>
           <%= f.submit 'Update User' , class:"btn btn-secondary" %>
+          <% if @user == current_user %>
+            <span> ｜ </span><%= link_to "退会", user_path(@user), class:"text-dark", class:"btn btn-secondary", method: :delete, "data-confirm" => "本当に退会しますか？" %>
+          <% end %>
 
         <% end %>
 

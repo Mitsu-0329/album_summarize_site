@@ -32,6 +32,9 @@
           <% if @post.user == current_user %>
             <%= f.submit 'Update Post' , class:"btn btn-success" %>
           <% end %>
+          <% if @post.user == current_user %>
+            <span> ｜ </span><%= link_to "削除", post_path(@post), class:"text-dark", method: :delete, "data-confirm" => "本当に消しますか？" %>
+          <% end %>
         <% end %>
         </div>
           <%= link_to 'Show', post_path(@post.id) %><%= " | " %>
