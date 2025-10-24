@@ -16,8 +16,10 @@
               <% end %>
             </p>
             <p class="card-title">本文：<%= @post.body %></p>
-            <span><i class="fa-solid fa-user"></i> By <%= @post.user.name %> ｜ </span>
-            <span><i class="fa-solid fa-calendar-days"></i> <%= @post.created_at.strftime('%Y/%m/%d') %> ｜ </span>
+            <span><i class="fa-solid fa-user"></i> By <%= link_to(user_path(@post.user_id)) do %> <%= @post.user.name %> <% end %>｜ </span>
+            
+
+              <span><i class="fa-solid fa-calendar-days"></i> <%= @post.created_at.strftime('%Y/%m/%d') %> ｜ </span>
             <span><i class="fa-solid fa-comment"></i> <%= link_to "#{@post}", post_path(@post.id), class:"text-dark" %> ｜ </span>
             <%# if @post.favorited_by?(current_user) %>
               <span>
