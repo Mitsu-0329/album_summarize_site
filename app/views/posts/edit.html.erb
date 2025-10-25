@@ -21,9 +21,14 @@
          
          
         <%= form_with model: @post do |f| %>
+          <% #現在の画像があれば画像を表示する。 %>
+          <% if @post.post_image.attached? %>
+          <div> <%= image_tag @post.post_image, width: "200px", height: "200px", class: "mt-3"; %> </div>
+          <% end %>
           <label>Image</label><br>
+          <span> もし画像を変更される場合は、こちらからアップロードしてください。</span>
           <%= f.file_field :post_image, accept: "image/*", class: "w-100" %>
-          <label>Title</label><br>
+          <label>Titl1</label><br>
           <%= f.text_field :title, class: "form-control post_title", id: "post_title" %>
           <br>
           <label>Body</label><br>
