@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def new
     @post = Post.new
@@ -68,6 +69,11 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :post_image, :body, :genre_id)
+  end
+
+  def correct_user
+    @post = current_user.posts.find_by_id(params[:id])
+    redirect_to root_path unless @post
   end
 
 end

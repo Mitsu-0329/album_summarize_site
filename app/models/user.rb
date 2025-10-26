@@ -30,10 +30,8 @@ class User < ApplicationRecord
   def family_code_check
     if self.family_code.present?
       # ファミリーが登録した時の動き
-      if User.find_by(family_code: self.family_code)
-        return true
-      else
-        return false
+      if !User.find_by(family_code: self.family_code)
+        errors.add(:family_code, "は不正な値です。")
       end
     else
       # 新規登録の時の動き
@@ -41,8 +39,6 @@ class User < ApplicationRecord
         self.family_code = SecureRandom.hex(12)
         break unless User.find_by(family_code: self.family_code)
       end
-
-      return true
     end
   end
 
