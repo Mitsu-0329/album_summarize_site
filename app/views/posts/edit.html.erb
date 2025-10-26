@@ -28,7 +28,7 @@
           <label>Image</label><br>
           <span> もし画像を変更される場合は、こちらからアップロードしてください。</span>
           <%= f.file_field :post_image, accept: "image/*", class: "w-100" %>
-          <label>Titl1</label><br>
+          <label>Title</label><br>
           <%= f.text_field :title, class: "form-control post_title", id: "post_title" %>
           <br>
           <label>Body</label><br>
@@ -44,6 +44,7 @@
         </div>
           <%= link_to 'Show', post_path(@post.id) %><%= " | " %>
           <%= link_to 'Back', posts_path %>
+        </div>
       </div>
     </div>
   </div>
