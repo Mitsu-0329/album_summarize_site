@@ -19,8 +19,8 @@
           </div>
           <%= f.text_field :title, class: "form-control", placeholder: "タイトル" %>
         </div>
-        <%= f.text_area :body, class: "form-control", rows: "3", placeholder: "本文" %>
-        <%= f.collection_select :genre_id, Genre.all, :id, :genre_name, include_blank: "選択して下さい" %>
+        <%= f.text_area :body, class: "form-control mb-3", rows: "3", placeholder: "本文" %>
+        <%= f.collection_select :genre_id, Genre.all, :id, :genre_name, { include_blank: "選択して下さい" }, { class: "form-control" } %>
         <hr>
         <%= f.submit '投稿', class: "btn btn-lg btn-block btn-info mt-4" %>
       <% end %>

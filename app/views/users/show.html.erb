@@ -1,13 +1,12 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-
 <!-- ユーザーの詳細 -->
 <main>
   <p id="notice"></p>
   <div class="container px-5 px-sm-0">
     <div class="row">
-      <%= render 'posts/sidebar', posts: @posts %>
-      <div class="col-md-8 offset-md-1">
+      <div class="col-md-4">
+        <%= render 'posts/sidebar', posts: @posts %>
+      </div>
+      <div class="col-md-8">
         <h3><%= current_user.name %></h3>
           <table class="table table-hover table-inverse">
             <thead>
