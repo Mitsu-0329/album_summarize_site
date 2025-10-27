@@ -42,6 +42,17 @@
             <% if @post.user == current_user %>
               <span> ｜ </span><%= link_to "削除", post_path(@post), class:"text-dark", method: :delete, "data-confirm" => "本当に消しますか？" %>
             <% end %>
+            <div class="new-comment card-text">
+              <%= form_with(model:[@post, @post_comment]) do |f| %>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">コメントする</label>
+                <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+              </div>
+              <%= f.submit "送信する", class:"btn btn-lg btn-info mt-2 float-right" %>
+              <% end %>
+            </div>
+        
+
           </div>
         </div>
         <hr>
