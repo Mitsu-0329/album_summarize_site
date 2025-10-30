@@ -3,4 +3,29 @@
 
 
   <%= render "comments" ,post: @post , post_comments: @post_comments >
-  
+
+
+<h1>Comments</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>post</th>
+      <th>comment</th>
+      <th>created_at</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @post_comments.each do |post_comment| %>
+      <tr>
+        <td><%= link_to post_comment.id, admin_post_post_comment_path(user) %></td>
+        <td><%= post_comment.name %></td>
+        <td><%= post_comment.post %></td>
+        <td><%= post_comment.comment %></td>
+        <td><%= post_comment.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
