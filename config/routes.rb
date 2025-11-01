@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     end
     resources :users, only: [:edit, :update, :show, :destroy]
     resources :genres, only: [:create, :index, :edit, :update, :destroy]
+    get '/search', to: 'searches#search'
   end
 end
  

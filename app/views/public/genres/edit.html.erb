@@ -2,12 +2,12 @@
 <p>Find me in app/views/genres/edit.html.erb</p>
 
 <main>
-  <div class="contener">
+  <div class="container">
     <div class="row">
       <div class="col">
         <h1>Editing Genre</h1>
         <% if @genre.errors.any? %>
-          <h3><%= @genre.errors.count %>erroers prohibited this post from being saved:</h3>
+          <h3><%= @genre.errors.count %>errors prohibited this post from being saved:</h3>
           <ul>
             <% @genre.errors.full_messages.each do |message| %>
               <li><%= message %></li>

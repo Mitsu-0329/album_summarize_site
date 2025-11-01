@@ -19,4 +19,17 @@ class Post < ApplicationRecord
       favorites.exists?(user_id: user.id)
     end
 
+    def self.search_for(content, method)
+      content = '' if content.nil?  # contentがnilの場合は空文字列に変更
+      if method == 'perfect'
+        Post.where(title: content)
+      elsif method == 'forward'
+        Post.where('title LIKE ?', content+'%')
+      elsif method == 'backward'
+        Post.where('title LIKE ?', '%'+content)
+      else
+        Post.where('title LIKE ?', '%'+content+'%')
+      end
+    end
+
 end
