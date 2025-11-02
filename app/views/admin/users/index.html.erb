@@ -6,7 +6,9 @@
       <th>id</th>
       <th>name</th>
       <th>email</th>
+      <th>Family Code</th>
       <th>created_at</th>
+      <th>削除ボタン</th>
     </tr>
   </thead>
   <tbody>
@@ -15,7 +17,11 @@
         <td><%= link_to user.id, admin_user_path(user) %></td>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
+        <td><%= user.family_code %></td>
         <td><%= user.created_at %></td>
+        <td>
+        <%= link_to "ユーザー削除", admin_user_path(user), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
