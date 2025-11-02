@@ -8,6 +8,13 @@ class Public::PostCommentsController < ApplicationController
     redirect_to post_path(post)
   end
 
+  #追加したがあっているか？
+  def index
+    @post = Post.new
+    @posts = Post.all
+    @post_comment = PostComment.new
+    @post_comments = PostComment.all
+
   def destroy
     post_comment = PostComment.find(params[:id]) 
     post_comment.destroy

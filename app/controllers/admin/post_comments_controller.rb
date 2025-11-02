@@ -1,10 +1,10 @@
-class Admin::CommentsController < ApplicationController
+class Admin::PostCommentsController < ApplicationController
   layout "admin"
   before_action :authenticate_admin!
 
   def index
-    @post = Post.find(params[:post_id])
-    @post_comments = @post.post_comments
+    @post = Post.all
+    @post_comments = PostComment.all
   end
 
   def create
@@ -17,11 +17,7 @@ class Admin::CommentsController < ApplicationController
 
   def destroy
     PostComment.find(params[:id]).destroy
-    redirect_to post_image_path(params[:post_image_id])
-  end
-
-
-  def destroy
+    redirect_to admin_post_comments_path
   end
 
   def destroy_all

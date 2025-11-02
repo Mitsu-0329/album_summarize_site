@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
   namespace :admin do
-    get 'comments/index'
-  end
-  namespace :admin do
     get 'users/index'
     get 'users/show'
   end
@@ -13,9 +10,9 @@ Rails.application.routes.draw do
   namespace :admin do
     root "users#index"
     resources :users, only: [:index, :show, :destroy]
-    resources :comments, only: [:index, :destroy]
-    delete "comments/:id/destroy_all", to: "comments#destroy_all"
-    resources :genres
+    resources :post_comments, only: [:index, :destroy]
+    delete "post_comments/:post_id/destroy_all" => "post_comments#destroy_all"
+    resources :genres, only: [:create, :index, :edit, :update, :destroy]
   end
 
   devise_for :users
@@ -30,6 +27,8 @@ Rails.application.routes.draw do
     resources :users, only: [:edit, :update, :show, :destroy]
     resources :genres, only: [:create, :index, :edit, :update, :destroy]
     get '/search', to: 'searches#search'
+    get 'photo_albums/index'
+    get 'photo_albums/show'
   end
 end
  
