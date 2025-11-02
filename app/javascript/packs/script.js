@@ -1,35 +1,3 @@
-<div class="container">
-  <div class="row no-gutters">
-    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
-      <h1 class="text-dark bg-light p-4 mb-0">Album Summarize Site</h1>
-      
-
-      <img class="blog-image img-fluid mx-auto" src="<%= asset_path('italy.jpg') %>">
-
-    
-    </div>
-  </div>
-</div>
-
-
-<div class="swiper">
-  <div class="swiper-wrapper">
-    <% Post.all.each do |post| %>
-      <div class="swiper-slide">
-        <% if post.post_image.attached? %>
-          <%= image_tag post.post_image %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-  <!-- ページネーションの要素 -->
-  <div class="swiper-pagination"></div>
-  <!-- ナビゲーションボタン （前、次） -->
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
-</div>
-
-<script>
 console.log("hello")
 const swiper = new Swiper('.swiper', {
   //オプションの設定
@@ -64,4 +32,3 @@ const opt = {
 $(document).on('turbolinks:load', function() {
     let swiper = new Swiper('.swiper',opt);
 });
-</script>
