@@ -16,7 +16,7 @@
           <%= f.text_field :genre_name, class: "form-control genre_name", id: "genre_name" %>
           <br>
           <%= f.submit 'Update Genre' , class:"btn btn-success" %>
-          <span> | </span><%= link_to "Delete Genre", admin_genres_path(@genre), class:"text-dark", method: :delete, "data-conform" => "本当に消しますか？", class: "btn btn-danger" %>
+          <span> | </span><%= link_to "Delete Genre", admin_genre_path(@genre), class:"text-dark", method: :delete, "data-conform" => "本当に消しますか？", class: "btn btn-danger" %>
         <% end %>
       </div>
     </div>
