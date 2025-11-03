@@ -19,7 +19,7 @@
           <%= f.text_field :genre_name, class: "form-control genre_name", id: "genre_name" %>
           <br>
           <%= f.submit 'Update Genre' , class:"btn btn-success" %>
-          <span> | </span><%= link_to "削除", genres_path(@genre), class:"text-dark", method: :delete, "data-conform" => "本当に消しますか？" %>
+          <span> | </span><%= link_to "削除", genre_path(@genre), class:"text-dark", method: :delete, "data-conform" => "本当に消しますか？" %>
         <% end %>
       </div>
     </div>
