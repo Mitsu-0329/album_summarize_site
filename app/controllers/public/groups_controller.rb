@@ -1,4 +1,6 @@
 class Public::GroupsController < ApplicationController
+  before_action :set_group, only: [:show, :send_email]
+
   def new
     @group = Group.new
   end
@@ -46,6 +48,27 @@ class Public::GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    #@groups = User.all
+    #if @groups.family_code = current_user.family_code
+    #@family_groups = @groups
+    #else
+    #  return
+    #end
+  end
+
+  def send_email
+    subject = params[:subject]
+    message = params[:message]
+
+    GroupMailer.group_email(@group, subject, message).deliver_now
+    redirect_to @group, notice: "メールを送信しました。"
+  end
+
+
+  def destroy
+    @group = Group.find(params[:id])
+    @group.destroy
+    redirect_to groups_family_index_path
   end
 
 
@@ -56,5 +79,8 @@ class Public::GroupsController < ApplicationController
     params.require(:group).permit(:name, :image, :introduction, :family_code)
   end
 
+  def set_group
+    @group = Group.find(params[:id])
+  end
 
 end
