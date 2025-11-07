@@ -26,9 +26,12 @@ Rails.application.routes.draw do
     end
     resources :users, only: [:edit, :update, :show, :destroy]
     resources :genres, only: [:create, :index, :edit, :update, :destroy]
+    get 'groups/family_index'
+    resources :groups, only: [:new, :create, :show, :edit, :update, :destroy]
     get '/search', to: 'searches#search'
     get 'photo_albums/index'
     get 'photo_albums/show'
+    
   end
 end
  

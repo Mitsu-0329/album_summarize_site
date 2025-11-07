@@ -7,6 +7,10 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :group_users, dependent: :destroy
+  has_many :owner_groups, class_name: "Group", foreign_key: :owner_id
+  has_many :groups, through: :group_users, source: :group
+  
 
   has_one_attached :profile_image
 

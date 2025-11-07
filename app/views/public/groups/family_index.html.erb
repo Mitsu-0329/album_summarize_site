@@ -1,0 +1,36 @@
+<h1>Groups#family_index（current_userとfamily_codeが同じuserしか表示されない一覧）</h1>
+<p>Find me in app/views/groups/family_index.html.erb</p>
+<p><%= link_to "グループ作成画面", new_group_path, class:"btn btn-success" %></p>
+
+<h1>Family Index</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>email</th>
+      <th>Family Code</th>
+      <th>created_at</th>
+      <th>退会ボタン</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <% @users.each do |user| %>
+      <% if user.family_code == current_user.family_code %>
+        <tr>
+          <td><%= link_to user.id, user_path(user) %></td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.family_code %></td>
+          <td><%= user.created_at %></td>
+          <td>
+          <%= link_to "ユーザー削除", user_path(user), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
