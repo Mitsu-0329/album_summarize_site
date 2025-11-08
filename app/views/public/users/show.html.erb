@@ -7,7 +7,10 @@
         <%= render 'public/posts/sidebar', posts: @posts, post: @new_post %>
       </div>
       <div class="col-md-8">
-        <h3><%= current_user.name %></h3><p><%= link_to "グループ詳細", group_path, class:"btn btn-success" %></p>
+        <h3><%= current_user.name %></h3>
+        <% if @group.present? %>
+          <p><%= link_to "グループ詳細", group_path(@group), class:"btn btn-success" %></p>
+        <% end %>
           <table class="table table-hover table-inverse">
             <thead>
               <th>Profile Image</th>

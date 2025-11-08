@@ -14,7 +14,7 @@ class Public::GroupUsersController < ApplicationController
 
   def destroy
     # 中間テーブルから削除
-    @group_user = @group.group_users.find_by(user_id params[:id])
+    @group_user = @group.group_users.find_by(user_id: params[:id])
     @group_user.destroy
     redirect_to @group, notice: 'メンバーを削除しました。'
   end

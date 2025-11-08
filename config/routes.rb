@@ -37,6 +37,7 @@ Rails.application.routes.draw do
     get 'photo_albums/index'
     get 'photo_albums/show'
     
+    get 'photo_albums/select_genre/:id', to: 'photo_albums#select_genre', as: 'select_genre'
   end
 end
  

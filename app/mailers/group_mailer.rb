@@ -14,4 +14,3 @@ class GroupMailer < ApplicationMailer
   end
 end
 
-end

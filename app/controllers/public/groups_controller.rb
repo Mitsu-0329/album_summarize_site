@@ -48,6 +48,7 @@ class Public::GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @family_users = User.where(family_code: current_user.family_code)
     #@groups = User.all
     #if @groups.family_code = current_user.family_code
     #@family_groups = @groups

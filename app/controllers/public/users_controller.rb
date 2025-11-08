@@ -3,6 +3,7 @@ class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @new_post = Post.new
+    @group = Group.find_by(family_code: current_user.family_code)
   end
 
   def edit
