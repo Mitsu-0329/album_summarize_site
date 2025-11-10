@@ -1,0 +1,42 @@
+<main>
+  <p id="notice"></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h1>Admin Editing group</h1>
+
+        <% if @group.errors.any? %>
+          <h3><%= @group.errors.count %>errors prohibited this post from being saved:</h3>
+          <ul>
+            <% @group.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>     
+         
+        <%= form_with model: @group do |f| %>
+          <% #現在の画像があれば画像を表示する。 %>
+          <% if @group.image.attached? %>
+          <div> <%= image_tag @group.image, width: "200px", height: "200px", class: "mt-3"; %> </div>
+          <% end %>
+          <label>Group image</label><br>
+          <span> もし画像を変更される場合は、こちらからアップロードしてください。</span>
+          <%= f.file_field :image, accept: "image/*", class: "w-100" %>
+          <label>name</label><br>
+          <%= f.text_field :name, class: "form-control post_title", id: "name" %>
+          <br>
+          <label>紹介文</label><br>
+          <%= f.text_area :introduction, class: "form-control post_body", id: "introduction" %>
+          <br>
+          <% if @group.user == current_user %>
+            <%= f.submit 'Update Post' , class:"btn btn-success" %>
+          <% end %>
+          <% if @group.user == current_user %>
+            <span> ｜ </span><%= link_to "削除", admin_group_path(@group), class:"text-dark", method: :delete, "data-confirm" => "本当に消しますか？" %>
+          <% end %>
+        <% end %>
+        <%= link_to 'Back', admin_groups_path %>
+      </div>
+    </div>
+  </div>
+</main>
