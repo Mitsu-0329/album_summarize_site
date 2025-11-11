@@ -2,7 +2,7 @@
   <div class="row no-gutters">
     <div class="col-md-10 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
       <h3 class="text-dark bg-light p-4 mb-0">Photo Album</h3>
-      <h3>ジャンル：<%= @genre.genre_name %></h3><span><%= link_to "Back" ,photo_albums_show_path, class:"btn btn-sm btn-success" %></span>
+      <h3>ジャンル：<%= @genre.genre_name %></h3><span><%= link_to "Back" ,photo_albums_show_path(group_id: @group.id), class:"btn btn-sm btn-success" %></span>
       <div class="swiper">
         <div class="swiper-wrapper">
     

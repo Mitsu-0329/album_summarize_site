@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row no-gutters">
     <div class="col-md-10 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
-      <h3 class="text-dark bg-light p-4 mb-0">Photo Album</h3>
+      <h3 class="text-dark bg-light p-4 mb-0">Photo Album</h3><%= link_to "Back" ,group_path(@group), class:"btn btn-sm btn-success" %>
         <h5>ジャンル別になっています。ジャンルを選択してください。</h5>
         <% @genres.each do |genre| %>
-          <span><%= link_to genre.genre_name, select_genre_path(genre.id), class:"btn btn-success" %></span>
+          <span><%= link_to genre.genre_name, select_genre_path(genre.id,group_id: @group.id), class:"btn btn-success" %></span>
         <% end %>
 
     </div>

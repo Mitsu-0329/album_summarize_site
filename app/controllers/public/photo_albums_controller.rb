@@ -13,10 +13,12 @@ class Public::PhotoAlbumsController < ApplicationController
       @posts = Post.all
       @genres = Genre.all
     end
+    @group = Group.find(params[:group_id])
   end
 
   def select_genre
     @genre = Genre.find(params[:id])
     @posts = @genre.posts
+    @group = Group.find(params[:group_id])
   end
 end
