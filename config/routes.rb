@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     delete "post_comments/:post_id/destroy_all" => "post_comments#destroy_all"
     resources :genres, only: [:create, :index, :edit, :update, :destroy]
     get 'groups/family_index'
-    resources :groups, only: [:edit, :update, :index, :show, :destroy]
+    resources :groups, only: [:edit, :update, :index, :destroy]
   end
 
   devise_for :users

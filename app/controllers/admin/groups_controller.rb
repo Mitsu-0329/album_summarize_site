@@ -9,7 +9,7 @@ class Admin::GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
     @group.update(group_params)
-      redirect_to edit_admin_groups_path(@group)
+      redirect_to admin_groups_path
   end
 
 

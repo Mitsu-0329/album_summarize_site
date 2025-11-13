@@ -21,7 +21,7 @@
           <tbody>
             <% @groups.each do |group| %>
               <tr>
-                <td><%= link_to group.id, admin_group_path(group) %></td>
+                <td><%= group.id %></td>
                 <td><%= group.name %></td>
                 <td><%= group.introduction %></td>
                 <td><%= group.family_code %></td>

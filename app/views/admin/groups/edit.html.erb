@@ -14,7 +14,7 @@
           </ul>
         <% end %>     
          
-        <%= form_with model: @group do |f| %>
+        <%= form_with model: @group,url: admin_group_path do |f| %>
           <% #現在の画像があれば画像を表示する。 %>
           <% if @group.image.attached? %>
           <div> <%= image_tag @group.image, width: "200px", height: "200px", class: "mt-3"; %> </div>
