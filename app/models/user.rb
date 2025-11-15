@@ -23,6 +23,17 @@ class User < ApplicationRecord
   #@user=User.find(1) # ユーザーidが1の1レコードを取得
   #@user.destroy # ユーザidが1の1レコードを削除
 
+  GUEST_USER_EMAIL = "guest@example.com"
+
+  def self.guest
+    find_or_create_by!(email: GUEST_USER_EMAIL) do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "guestuser"
+      file_path = Rails.root.join('app/assets/images/sample-author1.jpg')
+      user.profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+    end
+  end
+
   def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/sample-author1.jpg')
