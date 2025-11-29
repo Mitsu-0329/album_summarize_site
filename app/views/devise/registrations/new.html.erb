@@ -9,13 +9,13 @@
 
         <div class="field">
           <%= f.label :name %><br>
-          <%= f.text_field :name %>
+          <%= f.text_field :name, autocomplete: "new-password" %>
         </div>
 
 
         <div class="field">
           <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "off" %>
         </div>
 
         <div class="field">
@@ -36,7 +36,7 @@
 
         <div class="field">
           <%= f.label :family_code %><br>
-          <%= f.text_field :family_code %>
+          <%= f.text_field :family_code, autocomplete: "new-password" %>
         </div>
 
         <div class="actions">
