@@ -22,7 +22,9 @@ class Public::PostsController < ApplicationController
     #@posts = Post.page(params[:page])
     @post = Post.new
     @user = current_user
-    @posts = @user.posts
+    family_users = User.where(family_code: current_user.family_code)
+    @family_posts = Post.where(user_id: family_users.ids)
+    #@family_posts = Post.includes(:user).where('users.family_code': current_user.family_code)
   end
 
   def show

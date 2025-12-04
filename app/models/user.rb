@@ -29,9 +29,11 @@ class User < ApplicationRecord
     find_or_create_by!(email: GUEST_USER_EMAIL) do |user|
       user.password = SecureRandom.urlsafe_base64
       user.name = "guestuser"
+      user.family_code = "2b600680e6140e25108fcadb"
       file_path = Rails.root.join('app/assets/images/sample-author1.jpg')
       user.profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
+
   end
 
   def get_profile_image(width, height)

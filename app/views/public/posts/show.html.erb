@@ -17,7 +17,7 @@
             
 
               <span><i class="fa-solid fa-calendar-days"></i> <%= @post.created_at.strftime('%Y/%m/%d') %> ｜ </span>
-            <span><i class="fa-solid fa-comment"></i> <%= link_to "#{@post}", post_path(@post.id), class:"text-dark" %> ｜ </span>
+            <span><i class="fa-solid fa-comment"></i> <%= @post.post_comments.length %> ｜ </span>
             <% if @post.favorited_by?(current_user) %>
               <span>
                 <%= link_to(post_favorite_path(@post), class:"text-dark", method: :delete) do %>
